@@ -8,7 +8,6 @@ describe('tarefas', () => {
 
         cy.removeTaskByName(taskName)
         cy.createTask(taskName)
-
         cy.contains('main div p', taskName)
             .should('be.visible')
     })
@@ -28,4 +27,10 @@ describe('tarefas', () => {
             .should('be.visible')
             .should('have.text', 'Task already exists!')
     })
+
+    it('campo obrigatório', ()=> {
+        cy.createTask()
+        cy.isRequired('This is a required field')
+    })  
 })
+
