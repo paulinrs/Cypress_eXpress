@@ -1,4 +1,4 @@
-# [Cypress](https://blog.novatics.com.br/teste-end-to-end-com-cypress-io-358576dc05c3) eXpress
+# [Cypress](https://github.com/paulinrs/cypress/blob/main/README.md) eXpress
 </h1>
 <h1 align="center">
 
