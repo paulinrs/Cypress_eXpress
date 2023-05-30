@@ -23,7 +23,7 @@ describe('tarefas', () => {
 
         it('não deve permitir tarefa duplicada', () => {
 
-            const task = testData.dup
+            const task = testData.dupli
 
             cy.removeTaskByName(task.name)
             cy.postTask(task)
