@@ -1,0 +1,14 @@
+{
+    "dup": {
+        "name": "Estudar JavaScript",
+        "is_done": false
+    },
+    "concluir": {
+        "name": "fazer curso de Robot",
+        "is_done": false
+    },
+    "excluir": {
+        "name": "estudar java",
+        "is_done": false
+    }
+}

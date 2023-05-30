@@ -2,6 +2,14 @@
 
 describe('tarefas', () => {
 
+    let testData;
+
+    before(() => {
+        cy.fixture('tasks').then(t => {
+            testData = t
+        })
+    })
+
     context('cadastro', () => {
         it('deve cadastrar uma nova tarefa', () => {
 
@@ -15,10 +23,7 @@ describe('tarefas', () => {
 
         it('não deve permitir tarefa duplicada', () => {
 
-            const task = {
-                name: 'comprar um livro de Teste de Software',
-                is_done: false
-            }
+            const task = testData.dup
 
             cy.removeTaskByName(task.name)
             cy.postTask(task)
@@ -36,14 +41,11 @@ describe('tarefas', () => {
     })
     context('atualização', () => {
         it('deve concluir uma tarefa', () => {
-            const task = {
-                name: 'fazer curso de Robot',
-                is_done: false
-            }
+            
+            const task = testData.concluir
 
             cy.removeTaskByName(task.name)
             cy.postTask(task)
-
             cy.visit('/')
 
             cy.contains('p', task.name)
@@ -53,28 +55,25 @@ describe('tarefas', () => {
 
             cy.contains('p', task.name)
                 .should('have.css', 'text-decoration-line', 'line-through')
-            })    
-        })
-
-        context('exclusão', () => {
-            it('deve excluir uma tarefa', () => {
-                const task = {
-                    name: 'estudar java',
-                    is_done: false
-                }
-
-                cy.removeTaskByName(task.name)
-                cy.postTask(task)
-
-                cy.visit('/')
-
-                cy.contains('p', task.name)
-                    .parent()
-                    .find('button[class*=ItemDelete]')
-                    .click()
-
-                cy.contains('p', task.name)
-                    .should('not.exist')
-            })
         })
     })
+
+    context('exclusão', () => {
+        it('deve excluir uma tarefa', () => {
+            const task = testData.excluir
+
+            cy.removeTaskByName(task.name)
+            cy.postTask(task)
+
+            cy.visit('/')
+
+            cy.contains('p', task.name)
+                .parent()
+                .find('button[class*=ItemDelete]')
+                .click()
+
+            cy.contains('p', task.name)
+                .should('not.exist')
+        })
+    })
+})
