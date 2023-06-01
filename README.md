@@ -42,7 +42,7 @@ SIMULANDO UMA FALHA (Screenshots)
 O Cypress possui uma funcionalidade integrada que realiza a captura de screenshots no exato momento em que ocorre uma falha durante a execução dos testes. Essas screenshots são salvas em uma pasta específica dentro do diretório do seu projeto.
 
 Para visualizar as screenshots, basta acessar a pasta em que o Cypress as armazenou e abrir os arquivos de imagem correspondentes às falhas ocorridas durante a execução dos testes.
-  #
+  
   </h3>
  
    <div align="center">
