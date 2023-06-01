@@ -8,6 +8,7 @@ describe('tarefas', () => {
         cy.fixture('tasks').then(t => {
             testData = t
         })
+
     })
 
     context('cadastro', () => {
@@ -41,7 +42,7 @@ describe('tarefas', () => {
     })
     context('atualização', () => {
         it('deve concluir uma tarefa', () => {
-            
+
             const task = testData.concluir
 
             cy.removeTaskByName(task.name)
